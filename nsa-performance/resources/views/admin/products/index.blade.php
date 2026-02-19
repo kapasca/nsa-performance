@@ -17,19 +17,18 @@
   @endif
 
   <table class="table table-bordered align-middle">
-    <thead>
+    <thead class="table-dark">
       <tr>
-        <th class="text-center">Image</th>
-        <th class="text-center">Name</th>
-        <th class="text-center">Price</th>
-        <th class="text-center">Featured</th>
-        <th class="text-center" width="150">Action</th>
+        <th width="120" class="text-center">Image</th>
+        <th width="" class="text-center">Name</th>
+        <th width="12%" class="text-center">Featured</th>
+        <th width="12%" class="text-center">Action</th>
       </tr>
     </thead>
     <tbody>
       @foreach($products as $product)
       <tr>
-        <td class="text-center" width="120">
+        <td class="text-center">
           @if($product->image)
           <img src="/assets/images/products/{{ $product->image }}" alt="{{ $product->name }}"
             class="img-thumbnail" width="100">
@@ -37,12 +36,19 @@
           <span class="text-muted">No Image</span>
           @endif
         </td>
-        <td width="450">
+        <td>
           <strong>{{ $product->name }}</strong>
+          <div>
+            @if($product->discount_price && $product->discount_price < $product->price)
+            <span class="text-danger fw-bold">Rp {{ number_format($product->discount_price) }}</span>
+            <span class="text-muted text-decoration-line-through">Rp {{ number_format($product->price) }}</span>
+            @else
+            <span class="fw-bold">Rp {{ number_format($product->price) }}</span>
+            @endif
+          </div>
           <small class="text-muted d-block mt-1">{{ $product->description }}</small>
         </td>
-        <td width="15%" class="text-center">Rp {{ number_format($product->price) }}</td>
-        <td width="10%" class="text-center">
+        <td class="text-center">
           <div class="form-check form-switch d-inline-flex align-items-center gap-2">
             <input type="checkbox"
               class="form-check-input js-toggle-featured"
@@ -50,7 +56,7 @@
               {{ $product->is_featured ? 'checked' : '' }}>
           </div>
         </td>
-        <td width="10%" class="text-center">
+        <td class="text-center">
           <a href="{{ route('admin.products.edit', $product) }}"
             class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
 

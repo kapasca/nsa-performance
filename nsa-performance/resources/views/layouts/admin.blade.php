@@ -40,8 +40,11 @@
     <div class="container">
 
       <!-- Brand -->
+      <a class="navbar-brand d-flex align-items-center gap-3" href="/">
+        <img width="100" src="{{ asset('assets/images/logo/logo-nsa.png') }}" alt="NSA Performance Logo" class="navbar-logo">
+      </a>
       <a class="navbar-brand text-white fw-bold" href="{{ route('admin.products.index') }}">
-        ADMIN
+        ADMIN DASHBOARD
       </a>
 
       <!-- Mobile toggle -->

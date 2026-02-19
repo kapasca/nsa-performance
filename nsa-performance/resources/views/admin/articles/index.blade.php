@@ -26,12 +26,11 @@
 
   <!-- Table -->
   <table class="table table-bordered align-middle">
-    <thead>
+    <thead class="table-dark">
       <tr>
-        <th width="40%">Title</th>
-        <th width="20%" class="text-center">Date Published</th>
-        <th width="20%" class="text-center">Publish</th>
-        <th width="20%" class="text-center">Action</th>
+      <th width="76%" class="text-center">Title</th>
+      <th width="12%" class="text-center">Published</th>
+      <th width="12%" class="text-center">Action</th>
       </tr>
     </thead>
 
@@ -47,13 +46,17 @@
             {{ Str::limit($article->excerpt, 100) }}
           </small>
           @endif
-        </td>
 
-        <!-- Published date -->
-        <td class="text-center">
-          {{ $article->published_at
-                ? $article->published_at->format('d M Y H:i')
-                : '-' }}
+          <!-- place this badge in the right side -->
+          <div class="text-end">
+            <small class="text-muted" id="publishedAt-{{ $article->id }}">
+              @if($article->published_at)
+              <span class="badge bg-success">Published at: {{ $article->published_at->format('d M Y H:i') }}</span>
+              @else
+              <span class="badge bg-secondary">(Draft)</span>
+              @endif
+            </small>
+          </div>
         </td>
 
         <!-- Status -->
@@ -111,25 +114,13 @@
         _token: '{{ csrf_token() }}'
       },
       success(res) {
-        const badge = checkbox.closest('td').find('.badge')
+        const publishedAtSpan = $(`#publishedAt-${articleId}`)
 
         if (res.status === 'published') {
-          badge
-            .removeClass('bg-secondary')
-            .addClass('bg-success')
-            .text('Published')
+          publishedAtSpan.html('<span class="badge bg-success">Published at: ' + res.published_at + '</span>')
         } else {
-          badge
-            .removeClass('bg-success')
-            .addClass('bg-secondary')
-            .text('Draft')
+          publishedAtSpan.html('<span class="badge bg-secondary">(Draft)</span>')
         }
-
-        const publishedCell = checkbox
-          .closest('tr')
-          .find('td:nth-child(3)')
-
-        publishedCell.text(res.published_at ?? '-')
       },
       error() {
         alert('Failed to update publish status.')

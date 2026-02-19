@@ -7,7 +7,7 @@
     <div class="row g-4" id="articleList"></div>
 
     <div class="text-center mt-4 d-none" id="showMoreArticlesWrapper">
-      <button class="btn btn-outline-dark btn-sm" id="btnShowMoreArticles">
+      <button class="btn btn-outline-danger btn-sm" id="btnShowMoreArticles">
         <i class="fas fa-chevron-down me-2"></i>Show More Articles
       </button>
     </div>

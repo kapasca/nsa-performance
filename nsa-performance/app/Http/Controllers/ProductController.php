@@ -7,12 +7,24 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function featured()
+    // API method to get featured products on home page with pagination
+    public function featured(Request $request)
     {
-        return Product::where('is_featured', true)
+        $limit  = (int) $request->get('limit', 3);
+        $offset = (int) $request->get('offset', 0);
+
+        $products = Product::where('is_featured', true)
             ->latest()
-            ->take(6)
+            ->skip($offset)
+            ->take($limit)
             ->get();
+
+        $total = Product::where('is_featured', true)->count();
+
+        return response()->json([
+            'data' => $products,
+            'total' => $total,
+        ]);
     }
 
     public function show($id)

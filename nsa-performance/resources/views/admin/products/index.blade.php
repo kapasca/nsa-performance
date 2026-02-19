@@ -2,18 +2,20 @@
 
 @section('content')
 <div class="container py-5">
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 class="mb-4">Manage Products</h2>
+  <div class="d-flex justify-content-between align-items-center mb-5">
+    <div class="d-flex align-items-center gap-4">
+      <div class="d-flex align-items-center gap-3">
+        <i class="fas fa-boxes text-primary fs-4"></i>
+        <h2 class="mb-0">Manage Products</h2>
+      </div>
+      <a href="{{ route('admin.products.create') }}" class="btn btn-primary mb-0"><i class="fas fa-plus me-3"></i>Add Product</a>
+    </div>
     <!-- logout -->
     <form method="POST" action="{{ route('logout') }}">
       @csrf
       <button type="submit" class="btn btn-danger">Logout</button>
     </form>
   </div>
-
-  <a href="{{ route('admin.products.create') }}" class="btn btn-primary mb-3">
-    + Add Product
-  </a>
 
   @if(session('success'))
   <div class="alert alert-success">{{ session('success') }}</div>
@@ -22,8 +24,9 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Price</th>
+        <th class="text-center">Image</th>
+        <th class="text-center">Name</th>
+        <th class="text-center">Price</th>
         <th class="text-center">Featured</th>
         <th class="text-center" width="150">Action</th>
       </tr>
@@ -31,17 +34,28 @@
     <tbody>
       @foreach($products as $product)
       <tr>
-        <td>{{ $product->name }}</td>
-        <td>Rp {{ number_format($product->price) }}</td>
-        <td class="text-center">
+        <td class="text-center" width="120">
+          @if($product->image)
+          <img src="/assets/images/products/{{ $product->image }}" alt="{{ $product->name }}"
+            class="img-thumbnail" width="100">
+          @else
+          <span class="text-muted">No Image</span>
+          @endif
+        </td>
+        <td width="450">
+          <strong>{{ $product->name }}</strong>
+          <small class="text-muted d-block mt-1">{{ $product->description }}</small>
+        </td>
+        <td width="15%" class="text-center">Rp {{ number_format($product->price) }}</td>
+        <td width="10%" class="text-center">
           <input type="checkbox"
             class="form-check-input js-toggle-featured"
             data-id="{{ $product->id }}"
             {{ $product->is_featured ? 'checked' : '' }}>
         </td>
-        <td class="text-center">
+        <td width="10%" class="text-center">
           <a href="{{ route('admin.products.edit', $product) }}"
-            class="btn btn-sm btn-warning">Edit</a>
+            class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
 
           <form action="{{ route('admin.products.destroy', $product) }}"
             method="POST"
@@ -50,7 +64,7 @@
             @method('DELETE')
             <button class="btn btn-sm btn-danger"
               onclick="return confirm('Delete this product?')">
-              Delete
+              <i class="fas fa-trash"></i>
             </button>
           </form>
         </td>

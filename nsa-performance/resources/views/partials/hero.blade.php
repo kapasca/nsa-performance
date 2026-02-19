@@ -56,6 +56,14 @@
     margin-top: 5px;
   }
 
+  .carousel-caption-title {
+
+  }
+
+  .carousel-caption-subtitle {
+    font-size: 1.3rem;
+  }
+
   @media (max-width: 991px) {
     #hero {
       margin-top: 80px;
@@ -81,10 +89,18 @@
 
     .carousel-caption h1 {
       font-size: 2rem;
+      flex-direction: column;
+      line-height: 15px;
     }
 
     .carousel-caption h1 .lighter {
       font-size: 1.5rem;
+    }
+
+    .carousel-caption-subtitle {
+      font-size: 0.75rem;
+      text-align: center;
+      margin-top: 15px;
     }
 
   }
@@ -99,24 +115,24 @@
       <div class="carousel-item active">
         <img src="{{ asset('assets/images/slides/slide-1.jpg') }}" class="d-block w-100">
         <div class="carousel-caption text-center">
-          <h1 class="fw-bold text-danger mb-1 d-flex justify-content-center"><div>NSA</div><div class="lighter">Performance</div></h1>
-          <a href="#products" class="btn btn-danger btn-sm btn-explore mb-3 fs-5 mt-3"><i class="fas fa-shopping-cart me-2"></i> Explore Products</a>
+          <h1 class="carousel-caption-title fw-bold text-danger mb-1 d-flex justify-content-center"><div>NSA</div><div class="lighter">Performance</div></h1>
+          <a href="#products" class="btn btn-danger btn-sm btn-explore mb-3 carousel-caption-subtitle"><i class="fas fa-shopping-cart me-2"></i> Explore Products</a>
         </div>
       </div>
 
       <div class="carousel-item">
         <img src="{{ asset('assets/images/slides/slide-2.jpg') }}" class="d-block w-100">
         <div class="carousel-caption text-end">
-            <h1 class="fw-bold text-danger mb-1 d-flex justify-content-end"><div>RACING</div><div class="lighter">Ready</div></h1>
-          <p class="fs-5 mt-3">Built for Speed & Reliability</p>
+            <h1 class="carousel-caption-title fw-bold text-danger mb-1 d-flex justify-content-end"><div>RACING</div><div class="lighter">Ready</div></h1>
+          <p class="carousel-caption-subtitle">Built for Speed & Reliability</p>
         </div>
       </div>
 
       <div class="carousel-item">
         <img src="{{ asset('assets/images/slides/slide-3.jpg') }}" class="d-block w-100">
         <div class="carousel-caption text-start">
-          <h1 class="fw-bold text-danger mb-1 d-flex justify-content-start"><div>PREMIUM</div><div class="lighter">Accessories</div></h1>
-          <p class="fs-5 mt-3">Style Meets Performance</p>
+          <h1 class="carousel-caption-title fw-bold text-danger mb-1 d-flex justify-content-start"><div>PREMIUM</div><div class="lighter">Accessories</div></h1>
+          <p class="carousel-caption-subtitle">Style Meets Performance</p>
         </div>
       </div>
 

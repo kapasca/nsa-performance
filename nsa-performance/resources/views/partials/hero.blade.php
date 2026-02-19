@@ -100,7 +100,7 @@
         <img src="{{ asset('assets/images/slides/slide-1.jpg') }}" class="d-block w-100">
         <div class="carousel-caption text-center">
           <h1 class="fw-bold text-danger mb-1 d-flex justify-content-center"><div>NSA</div><div class="lighter">Performance</div></h1>
-          <a href="#products" class="btn btn-danger btn-sm btn-explore mb-3"><i class="fas fa-shopping-cart me-2"></i> Explore Products</a>
+          <a href="#products" class="btn btn-danger btn-sm btn-explore mb-3 fs-5 mt-3"><i class="fas fa-shopping-cart me-2"></i> Explore Products</a>
         </div>
       </div>
 
@@ -108,7 +108,7 @@
         <img src="{{ asset('assets/images/slides/slide-2.jpg') }}" class="d-block w-100">
         <div class="carousel-caption text-end">
             <h1 class="fw-bold text-danger mb-1 d-flex justify-content-end"><div>RACING</div><div class="lighter">Ready</div></h1>
-          <p>Built for Speed & Reliability</p>
+          <p class="fs-5 mt-3">Built for Speed & Reliability</p>
         </div>
       </div>
 
@@ -116,7 +116,7 @@
         <img src="{{ asset('assets/images/slides/slide-3.jpg') }}" class="d-block w-100">
         <div class="carousel-caption text-start">
           <h1 class="fw-bold text-danger mb-1 d-flex justify-content-start"><div>PREMIUM</div><div class="lighter">Accessories</div></h1>
-          <p>Style Meets Performance</p>
+          <p class="fs-5 mt-3">Style Meets Performance</p>
         </div>
       </div>
 

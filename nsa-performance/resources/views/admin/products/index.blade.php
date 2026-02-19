@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container py-5">
@@ -8,20 +8,15 @@
         <i class="fas fa-boxes text-primary fs-4"></i>
         <h2 class="mb-0">Manage Products</h2>
       </div>
-      <a href="{{ route('admin.products.create') }}" class="btn btn-primary mb-0"><i class="fas fa-plus me-3"></i>Add Product</a>
     </div>
-    <!-- logout -->
-    <form method="POST" action="{{ route('logout') }}">
-      @csrf
-      <button type="submit" class="btn btn-danger">Logout</button>
-    </form>
+    <a href="{{ route('admin.products.create') }}" class="btn btn-primary mb-0"><i class="fas fa-plus me-3"></i>Add Product</a>
   </div>
 
   @if(session('success'))
   <div class="alert alert-success">{{ session('success') }}</div>
   @endif
 
-  <table class="table table-bordered">
+  <table class="table table-bordered align-middle">
     <thead>
       <tr>
         <th class="text-center">Image</th>
@@ -48,10 +43,12 @@
         </td>
         <td width="15%" class="text-center">Rp {{ number_format($product->price) }}</td>
         <td width="10%" class="text-center">
-          <input type="checkbox"
-            class="form-check-input js-toggle-featured"
-            data-id="{{ $product->id }}"
-            {{ $product->is_featured ? 'checked' : '' }}>
+          <div class="form-check form-switch d-inline-flex align-items-center gap-2">
+            <input type="checkbox"
+              class="form-check-input js-toggle-featured"
+              data-id="{{ $product->id }}"
+              {{ $product->is_featured ? 'checked' : '' }}>
+          </div>
         </td>
         <td width="10%" class="text-center">
           <a href="{{ route('admin.products.edit', $product) }}"

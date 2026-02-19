@@ -1,6 +1,6 @@
 <section class="py-5 bg-black text-white">
   <div class="container text-center">
-    <h2 class="fw-bold mb-4 text-danger">Why Choose NSA Performance?</h2>
+    <h2 class="fw-bold mb-4 text-danger font-audiowide">Why Choose NSA Performance?</h2>
 
     <div class="row">
       <div class="col-md-4">

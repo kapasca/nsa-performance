@@ -17,7 +17,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 4rem 6rem;
+    padding: 4rem 6rem 6rem 6rem;
     background: linear-gradient(to top,
         rgba(0, 0, 0, 1),
         rgba(0, 0, 0, 0));
@@ -25,7 +25,7 @@
   }
 
   .carousel-caption h1 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-family: 'Audiowide', cursive;
     text-shadow: 
     5px 5px 3px #000000, 
@@ -39,7 +39,7 @@
 
   .carousel-caption h1 .lighter {
     font-weight: normal;
-    font-size: 1.7rem;
+    font-size: 2.7rem;
     color: #cfb6b6;
     letter-spacing: 2px;
   }
@@ -77,6 +77,14 @@
 
     .carousel-caption {
       padding: 1rem 2rem;
+    }
+
+    .carousel-caption h1 {
+      font-size: 2rem;
+    }
+
+    .carousel-caption h1 .lighter {
+      font-size: 1.5rem;
     }
 
   }

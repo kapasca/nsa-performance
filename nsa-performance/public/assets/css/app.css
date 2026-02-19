@@ -1,3 +1,7 @@
 :root {
     --bs-body-font-family: "Lexend", system-ui, sans-serif !important;
 }
+
+.font-audiowide {
+    font-family: "Audiowide", cursive, sans-serif !important;
+}

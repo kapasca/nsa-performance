@@ -12,7 +12,7 @@
     z-index: 1000;
     min-height: 120px;
     background: rgba(0, 0, 0, 0.6);
-    transition: background 0.3s ease;
+    transition: 1s ease;
   }
 
   .navbar-logo {
@@ -28,6 +28,7 @@
 
   .navbar-solid {
     background: rgba(0, 0, 0, 0.95);
+    transition: 1s ease;
   }
 
   .search-input {

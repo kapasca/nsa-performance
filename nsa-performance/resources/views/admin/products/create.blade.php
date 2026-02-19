@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container py-5">
-  <h2>Create Product</h2>
+  <h2 class="mb-5">Create Product</h2>
 
   <form action="{{ route('admin.products.store') }}"
     method="POST"

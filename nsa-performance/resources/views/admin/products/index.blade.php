@@ -2,7 +2,14 @@
 
 @section('content')
 <div class="container py-5">
-  <h2 class="mb-4">Manage Products</h2>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-4">Manage Products</h2>
+    <!-- logout -->
+    <form method="POST" action="{{ route('logout') }}">
+      @csrf
+      <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+  </div>
 
   <a href="{{ route('admin.products.create') }}" class="btn btn-primary mb-3">
     + Add Product
@@ -17,8 +24,8 @@
       <tr>
         <th>Name</th>
         <th>Price</th>
-        <th>Featured</th>
-        <th width="150">Action</th>
+        <th class="text-center">Featured</th>
+        <th class="text-center" width="150">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -26,13 +33,13 @@
       <tr>
         <td>{{ $product->name }}</td>
         <td>Rp {{ number_format($product->price) }}</td>
-        <td>
+        <td class="text-center">
           <input type="checkbox"
             class="form-check-input js-toggle-featured"
             data-id="{{ $product->id }}"
             {{ $product->is_featured ? 'checked' : '' }}>
         </td>
-        <td>
+        <td class="text-center">
           <a href="{{ route('admin.products.edit', $product) }}"
             class="btn btn-sm btn-warning">Edit</a>
 

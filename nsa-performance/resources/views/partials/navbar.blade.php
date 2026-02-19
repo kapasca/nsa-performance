@@ -112,6 +112,16 @@
         </div>
       </form>
 
+      <!-- Check if user is authenticated -->
+      @auth
+        <form method="POST" action="{{ route('logout') }}">
+          @csrf
+          <button type="submit" class="btn btn-link text-decoration-none bg-danger text-white ms-4">
+            Logout
+          </button>
+        </form>
+      @endauth
+
     </div>
 
   </div>

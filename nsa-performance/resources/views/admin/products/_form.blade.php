@@ -28,7 +28,7 @@
   <input type="file" name="image" class="form-control">
 </div>
 
-<div class="form-check mb-3">
+<div class="form-check mb-3 mt-3">
   <input type="hidden" name="is_featured" value="0">
   <input type="checkbox"
     name="is_featured"
@@ -38,4 +38,10 @@
   <label class="form-check-label">Featured</label>
 </div>
 
-<button class="btn btn-success">Save</button>
+<div class="d-flex justify-content-start mt-5 gap-3">
+  <!-- Cancel Button -->
+  <a href="{{ route('admin.products.index') }}" class="btn btn-secondary px-3">Cancel</a>
+
+  <!-- Save Button -->
+  <button class="btn btn-success px-3">Save</button>
+</div>

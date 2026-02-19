@@ -16,4 +16,12 @@
     </a>
   </li>
 
+  <li class="nav-item">
+    <a
+      href="{{ route('admin.videos.index') }}"
+      class="nav-link {{ request()->routeIs('admin.videos.*') ? 'active' : '' }}">
+      Videos
+    </a>
+  </li>
+
 </ul>

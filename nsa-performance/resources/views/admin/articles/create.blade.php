@@ -1,11 +1,12 @@
+
 @extends('layouts.admin')
 
 @section('content')
-<h1 class="mb-4">Create Article</h1>
+<div class="container py-5">
+  <h2 class="mb-5">Create Article</h2>
 
-<form
-  method="POST"
-  action="{{ route('admin.articles.store') }}">
-  @include('admin.articles._form')
-</form>
+  <form method="POST" action="{{ route('admin.articles.store') }}">
+    @include('admin.articles._form')
+  </form>
+</div>
 @endsection

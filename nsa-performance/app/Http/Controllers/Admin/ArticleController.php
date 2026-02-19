@@ -38,10 +38,10 @@ class ArticleController extends Controller
             $data['published_at'] = null;
         }
 
-
         Article::create($data);
 
-        return redirect()->route('admin.articles.index');
+        return redirect()->route('admin.articles.index')
+            ->with('success', 'Article created successfully.');
     }
 
     public function edit(Article $article)
@@ -69,13 +69,16 @@ class ArticleController extends Controller
 
         $article->update($data);
 
-        return redirect()->route('admin.articles.index');
+        return redirect()->route('admin.articles.index')
+            ->with('success', 'Article updated successfully.');
     }
 
     public function destroy(Article $article)
     {
         $article->delete();
-        return back();
+
+        return redirect()->route('admin.articles.index')
+            ->with('success', 'Article deleted successfully.');
     }
 
     public function togglePublish(Request $request, Article $article)

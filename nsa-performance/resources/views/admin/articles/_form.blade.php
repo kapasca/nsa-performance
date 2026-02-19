@@ -1,7 +1,17 @@
 @csrf
 
+@if($errors->any())
+<div class="alert alert-danger">
+  <ul class="mb-0">
+    @foreach($errors->all() as $error)
+    <li>{{ $error }}</li>
+    @endforeach
+  </ul>
+</div>
+@endif
+
 <div class="mb-3">
-  <label class="form-label">Title</label>
+  <label>Title</label>
   <input
     type="text"
     name="title"
@@ -11,7 +21,7 @@
 </div>
 
 <div class="mb-3">
-  <label class="form-label">Slug</label>
+  <label>Slug</label>
   <input
     type="text"
     name="slug"
@@ -21,7 +31,7 @@
 </div>
 
 <div class="mb-3">
-  <label class="form-label">Excerpt</label>
+  <label>Excerpt</label>
   <textarea
     name="excerpt"
     class="form-control"
@@ -29,7 +39,7 @@
 </div>
 
 <div class="mb-3">
-  <label class="form-label">Content</label>
+  <label>Content</label>
   <textarea
     name="content"
     class="form-control"
@@ -38,27 +48,18 @@
 </div>
 
 <div class="mb-3">
-  <label class="form-label">Status</label>
+  <label>Status</label>
   <select name="status" class="form-select">
-    <option value="draft"
-      @selected(old('status', $article->status ?? 'draft') === 'draft')
-      >
+    <option value="draft" @selected(old('status', $article->status ?? 'draft') === 'draft')>
       Draft
     </option>
-    <option value="published"
-      @selected(old('status', $article->status ?? '') === 'published')
-      >
+    <option value="published" @selected(old('status', $article->status ?? '') === 'published')>
       Published
     </option>
   </select>
 </div>
 
-<div class="d-flex gap-2">
-  <button type="submit" class="btn btn-primary">
-    Save
-  </button>
-
-  <a href="{{ route('admin.articles.index') }}" class="btn btn-secondary">
-    Cancel
-  </a>
+<div class="d-flex justify-content-start mt-5 gap-3">
+  <a href="{{ route('admin.articles.index') }}" class="btn btn-secondary px-3">Cancel</a>
+  <button type="submit" class="btn btn-success px-3">Save</button>
 </div>

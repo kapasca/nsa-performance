@@ -6,12 +6,12 @@
   <!-- Header -->
   <div class="d-flex justify-content-between align-items-center mb-5">
     <div class="d-flex align-items-center gap-3">
-      <i class="fas fa-newspaper text-primary fs-4"></i>
+      <i class="fas fa-newspaper text-black fs-4"></i>
       <h2 class="mb-0">Manage Articles</h2>
     </div>
 
     <a href="{{ route('admin.articles.create') }}"
-      class="btn btn-primary">
+      class="btn btn-success">
       <i class="fas fa-plus me-2"></i>
       Add Article
     </a>
@@ -48,12 +48,12 @@
           @endif
 
           <!-- place this badge in the right side -->
-          <div class="text-end">
+          <div class="text-start mt-2">
             <small class="text-muted" id="publishedAt-{{ $article->id }}">
               @if($article->published_at)
-              <span class="badge bg-success">Published at: {{ $article->published_at->format('d M Y H:i') }}</span>
+              <span class="badge bg-secondary">Published at: {{ $article->published_at->format('d M Y H:i') }}</span>
               @else
-              <span class="badge bg-secondary">(Draft)</span>
+              <span class="badge bg-info">DRAFT</span>
               @endif
             </small>
           </div>
@@ -117,9 +117,9 @@
         const publishedAtSpan = $(`#publishedAt-${articleId}`)
 
         if (res.status === 'published') {
-          publishedAtSpan.html('<span class="badge bg-success">Published at: ' + res.published_at + '</span>')
+          publishedAtSpan.html('<span class="badge bg-secondary">Published at: ' + res.published_at + '</span>')
         } else {
-          publishedAtSpan.html('<span class="badge bg-secondary">(Draft)</span>')
+          publishedAtSpan.html('<span class="badge bg-info">DRAFT</span>')
         }
       },
       error() {

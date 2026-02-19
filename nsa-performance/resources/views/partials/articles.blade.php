@@ -1,5 +1,5 @@
 <section id="articles" class="py-5 bg-white text-black">
-  <div class="container">
+  <div class="container mb-4">
     <h2 class="text-center fw-bold mb-4 font-audiowide text-black fs-2">
       Latest Articles
     </h2>
@@ -8,7 +8,7 @@
 
     <div class="text-center mt-4 d-none" id="showMoreArticlesWrapper">
       <button class="btn btn-outline-danger btn-sm" id="btnShowMoreArticles">
-        <i class="fas fa-chevron-down me-2"></i>Show More Articles
+        <i class="fas fa-chevron-down me-3"></i>Show More Articles
       </button>
     </div>
   </div>

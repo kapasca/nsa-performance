@@ -39,9 +39,6 @@
 </div>
 
 <div class="d-flex justify-content-start mt-5 gap-3">
-  <!-- Cancel Button -->
   <a href="{{ route('admin.products.index') }}" class="btn btn-secondary px-3">Cancel</a>
-
-  <!-- Save Button -->
-  <button class="btn btn-success px-3">Save</button>
+  <button type="submit" class="btn btn-success px-3">Save</button>
 </div>

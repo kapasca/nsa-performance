@@ -5,11 +5,11 @@
   <div class="d-flex justify-content-between align-items-center mb-5">
     <div class="d-flex align-items-center gap-4">
       <div class="d-flex align-items-center gap-3">
-        <i class="fas fa-boxes text-primary fs-4"></i>
+        <i class="fas fa-boxes text-black fs-4"></i>
         <h2 class="mb-0">Manage Products</h2>
       </div>
     </div>
-    <a href="{{ route('admin.products.create') }}" class="btn btn-primary mb-0"><i class="fas fa-plus me-3"></i>Add Product</a>
+    <a href="{{ route('admin.products.create') }}" class="btn btn-success mb-0"><i class="fas fa-plus me-3"></i>Add Product</a>
   </div>
 
   @if(session('success'))

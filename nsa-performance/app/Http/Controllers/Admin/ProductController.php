@@ -45,8 +45,7 @@ class ProductController extends Controller
             'is_featured' => $request->boolean('is_featured'),
         ]);
 
-        return redirect()->route('admin.products.index')
-            ->with('success', 'Product created successfully.');
+        return redirect()->route('admin.products.index')->with('success', 'Product created successfully.');
     }
 
     public function edit(Product $product)
@@ -80,16 +79,14 @@ class ProductController extends Controller
             'is_featured' => $request->boolean('is_featured'),
         ]);
 
-        return redirect()->route('admin.products.index')
-            ->with('success', 'Product updated successfully.');
+        return redirect()->route('admin.products.index')->with('success', 'Product updated successfully.');
     }
 
     public function destroy(Product $product)
     {
         $product->delete();
 
-        return redirect()->route('admin.products.index')
-            ->with('success', 'Product deleted successfully.');
+        return redirect()->route('admin.products.index')->with('success', 'Product deleted successfully.');
     }
 
     public function toggleFeatured(Product $product)

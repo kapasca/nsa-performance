@@ -31,4 +31,12 @@ class ProductController extends Controller
     {
         return Product::findOrFail($id);
     }
+
+    public function index(Request $request)
+    {
+        $query = Product::query();
+        $products = $query->paginate(12);
+
+        return view('store.index', compact('products'));
+    }
 }

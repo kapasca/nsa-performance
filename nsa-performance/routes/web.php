@@ -59,3 +59,6 @@ Route::get('/api/articles/latest', [ArticleController::class, 'latest']);
 
 Route::get('/api/videos/latest', [VideoController::class, 'latest']);
 Route::get('/videos/{id}', [VideoController::class, 'show'])->name('videos.show');
+
+Route::get('/store', [ProductController::class, 'index'])->name('store.index');
+Route::get('/store/products', [ProductController::class, 'store'])->name('products.store');
